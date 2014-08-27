@@ -1,11 +1,10 @@
+#!/usr/bin/env node
 var NeuralNetwork = require('brain').NeuralNetwork
 var ldj = require('ldjson-stream')
 var fs = require('fs')
 var through = require('through2').obj
 var tempfile = require('tempfile')()
 var argv = require('minimist')(process.argv.slice(2))
-// tmp,cnt
-console.dir(argv)
 
 process.stdin
   .pipe(ldj.parse())
@@ -29,8 +28,7 @@ process.stdin
     } else {
       dataio['output'] = data['output']
     }  
-    
-    // console.log(data)
+
     cb(null, dataio)
   }))
   .pipe(ldj.serialize())
@@ -44,12 +42,10 @@ function startTrain() {
       writeToStream()
     },
     doneTrainingCallback: function (info) {
-     console.error(info)
-     console.error(net.run({temp: 0}))
-     console.error(net.run({temp: 0.6}))
      console.log(JSON.stringify(net.toJSON()))
+     fs.unlink(tempfile)
     },
-    log: true,
+    log: false,
     iterations: 1000
   })
   //kickoff

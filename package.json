@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "CLI for training a brain.js neural network with ldjson",
   "main": "index.js",
+  "bin": {
+    "brain-train": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
