@@ -7,7 +7,7 @@ Install with `npm install brain-train -g`.
 
 ## Usage
 ```
-cat data.ldjson | brain-brain --input input,input2 --output color > network.json
+cat data.ldjson | brain-train --input input,input2 --output color > network.json
 ```
 
 If `--input` or `--ouput` are emitted it will use the `input` and `output` attributes
