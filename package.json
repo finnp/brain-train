@@ -1,6 +1,6 @@
 {
   "name": "brain-train",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CLI for training a brain.js neural network with ldjson",
   "main": "index.js",
   "bin": {
