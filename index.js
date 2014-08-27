@@ -42,8 +42,11 @@ function startTrain() {
       writeToStream()
     },
     doneTrainingCallback: function (info) {
-     console.log(JSON.stringify(net.toJSON()))
-     fs.unlink(tempfile)
+      if(argv.function)
+        console.log(net.toFunction().toString())
+      else 
+        console.log(JSON.stringify(net.toJSON()))
+      fs.unlink(tempfile)
     },
     log: false,
     iterations: 1000

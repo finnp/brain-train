@@ -13,6 +13,9 @@ cat data.ldjson | brain-train --input input,input2 --output color > network.json
 If `--input` or `--ouput` are emitted it will use the `input` and `output` attributes
 of your input JSON.
 
+Using `--function` will output the net as a function that can be used without a brain.js
+dependency.
+
 Note that it will create a temporary file on your disk for process.stdin first
 to reuse the stream for the repeated iterations.
 
