@@ -11,14 +11,13 @@ process.stdin
   .pipe(through(function (data, enc, cb) {
     var data = {
       input: {
-        weekday: data.weekday,
-        windspeed: data.windspeed,
-        temp: data.temp
+        temp: Number(data.temp)
       },
       output: {
-        cnt: data.cnt
+        cnt: (Number(data.cnt) / 5000)
       }
     }
+    // console.log(data)
     cb(null, data)
   }))
   .pipe(ldj.serialize())
@@ -33,6 +32,8 @@ function startTrain() {
     },
     doneTrainingCallback: function (info) {
      console.error(info)
+     console.error(net.run({temp: 0}))
+     console.error(net.run({temp: 0.6}))
      console.log(JSON.stringify(net.toJSON()))
     },
     log: true,
